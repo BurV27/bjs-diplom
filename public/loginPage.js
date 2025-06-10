@@ -1,29 +1,8 @@
-class UserForm {
-  constructor(loginFormCallback, registerFormCallback){
-    this.loginFormCallback = loginFormCallback,
-    this.registerFormCallback = registerFormCallback
-  }
-}
+"use strict";
 
-class ApiConnector {
-  constructor(login, password){
-    this.loginUser = login;
-    this.passwordUser = password;
-  }
+const objUserForm = new UserForm();
 
-  login({login, password}, callback){
-    this.loginUser = login;
-    this.passwordUser = password;
-    callback()
-  }
+objUserForm.loginFormCallback = data => ApiConnector.login(data, callback)
 
-  register({login, password}, callback){
-    this.loginUser = login;
-    this.passwordUser = password;
-    callback()
-  }
-}
 
-let objUserForm = new UserForm();
-objUserForm.loginFormCallback = (data) => ApiConnector.loginFormCallback(data, callback)
-objUserForm.registerFormCallback = (data) => ApiConnector.registerFormCallback(data, callback)
+
