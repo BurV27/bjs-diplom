@@ -6,7 +6,7 @@
       "password": "demo",
       "id": 1,
       "balance": {
-        "RUB": 1000,
+        "RUB": 1012,
         "USD": 20,
         "EUR": 20,
         "NTC": 3000
@@ -59,6 +59,18 @@
         "USD": 500,
         "EUR": 600,
         "NTC": 90000
+      }
+    },
+    {
+      "created_at": "2025-06-13T09:22:23.289Z",
+      "login": "df",
+      "password": "df",
+      "id": 6,
+      "balance": {
+        "RUB": 0,
+        "USD": 0,
+        "EUR": 0,
+        "NTC": 0
       }
     }
   ],
