@@ -1,4 +1,3 @@
-
 class ProfileWidget {
   static showProfile(data) {
     const profileList = document.querySelector('.list');
