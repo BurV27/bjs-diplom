@@ -51,6 +51,7 @@ objMoneyManager.conversionMoneyCallback = (data) => {
 
 objMoneyManager.sendMoneyCallback = (data) => {
   ApiConnector.transferMoney(data, (response) => {
+    console.log(response)
     if (response.success) {
       ProfileWidget.showProfile(response.data);
     }
