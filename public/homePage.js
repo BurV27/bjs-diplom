@@ -61,20 +61,18 @@ objMoneyManager.sendMoneyCallback = (data) => {
 const objFavoritesWidget = new FavoritesWidget();
 
 ApiConnector.getFavorites((response) => {
-  console.log(response)
   if (response.success) {
     objFavoritesWidget.clearTable();
-    objFavoritesWidget.fillTable();
+    objFavoritesWidget.fillTable(response.data);
     objMoneyManager.updateUsersList(response);
   }
 });
 
 objFavoritesWidget.addUserCallback = (data) => {
   ApiConnector.addUserToFavorites(data, (response) => {
-    console.log(response)
     if (response.success) {
       objFavoritesWidget.clearTable();
-      objFavoritesWidget.fillTable();
+      objFavoritesWidget.fillTable(response.data);
       objMoneyManager.updateUsersList(response);
     }
     objFavoritesWidget.setMessage();
@@ -83,10 +81,9 @@ objFavoritesWidget.addUserCallback = (data) => {
 
 objFavoritesWidget.removeUserCallback = (data) => {
   ApiConnector.removeUserFromFavorites(data, (response) => {
-    console.log(response)
     if (response.success) {
       objFavoritesWidget.clearTable();
-      objFavoritesWidget.fillTable();
+      objFavoritesWidget.fillTable(response.data);
       objMoneyManager.updateUsersList(response);
     }
     objFavoritesWidget.setMessage();
