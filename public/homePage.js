@@ -26,7 +26,6 @@ const getStocks = () =>
   });
 
 getStocks();
-
 setInterval(getStocks, 60000);
 
 const objMoneyManager = new MoneyManager();
@@ -51,7 +50,6 @@ objMoneyManager.conversionMoneyCallback = (data) => {
 
 objMoneyManager.sendMoneyCallback = (data) => {
   ApiConnector.transferMoney(data, (response) => {
-    console.log(response)
     if (response.success) {
       ProfileWidget.showProfile(response.data);
     }
