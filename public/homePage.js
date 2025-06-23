@@ -35,7 +35,7 @@ objMoneyManager.addMoneyCallback = (data) => {
     if (response.success) {
       ProfileWidget.showProfile(response.data);
     }
-    objMoneyManager.setMessage(); 
+    objMoneyManager.setMessage(response.success, response.success ? "Операция успешна!" : response.error) ; 
   });
 };
 
@@ -44,7 +44,7 @@ objMoneyManager.conversionMoneyCallback = (data) => {
     if (response.success) {
       ProfileWidget.showProfile(response.data);
     }
-    objMoneyManager.setMessage();
+    objMoneyManager.setMessage(response.success, response.success ? "Операция успешна!" : response.error) ;
   });
 };
 
@@ -53,7 +53,7 @@ objMoneyManager.sendMoneyCallback = (data) => {
     if (response.success) {
       ProfileWidget.showProfile(response.data);
     }
-    objMoneyManager.setMessage();
+    objMoneyManager.setMessage(response.success, response.success ? "Операция успешна!" : response.error);
   });
 };
 
@@ -63,7 +63,7 @@ ApiConnector.getFavorites((response) => {
   if (response.success) {
     objFavoritesWidget.clearTable();
     objFavoritesWidget.fillTable(response.data);
-    objMoneyManager.updateUsersList(response);
+    objMoneyManager.updateUsersList(response.data);
   }
 });
 
@@ -72,9 +72,9 @@ objFavoritesWidget.addUserCallback = (data) => {
     if (response.success) {
       objFavoritesWidget.clearTable();
       objFavoritesWidget.fillTable(response.data);
-      objMoneyManager.updateUsersList(response);
+      objMoneyManager.updateUsersList(response.data);
     }
-    objFavoritesWidget.setMessage();
+    objFavoritesWidget.setMessage(response.success, response.success ? "Операция успешна!" : response.error) 
   });
 };
 
@@ -83,8 +83,8 @@ objFavoritesWidget.removeUserCallback = (data) => {
     if (response.success) {
       objFavoritesWidget.clearTable();
       objFavoritesWidget.fillTable(response.data);
-      objMoneyManager.updateUsersList(response);
+      objMoneyManager.updateUsersList(response.data);
     }
-    objFavoritesWidget.setMessage();
+    objFavoritesWidget.setMessage(response.success, response.success ? "Операция успешна!" : response.error);
   });
 };
